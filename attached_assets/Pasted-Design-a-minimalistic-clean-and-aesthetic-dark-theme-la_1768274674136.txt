@@ -1,0 +1,91 @@
+Design a minimalistic, clean, and aesthetic dark-theme landing page for a global fantasy market simulation platform.
+
+DESIGN PHILOSOPHY:
+- Ultra-clean layout
+- High contrast, lots of negative space
+- Calm, premium, trustworthy
+- No flashy neon, no gaming overload
+- Looks like a modern fintech + design-first product
+- Apple × Stripe × Linear energy
+
+COLOR SYSTEM:
+- Background: pure black / charcoal (#0A0A0A, #0F172A)
+- Text: soft white / gray (#E5E7EB, #9CA3AF)
+- Accent: ONE muted color only (soft blue or muted purple)
+- No gradients unless extremely subtle
+- No glow effects
+
+TYPOGRAPHY:
+- Font: Inter / Satoshi / SF-style
+- Large, confident hero text
+- Simple font hierarchy
+- No unnecessary bolding
+
+HERO SECTION:
+- Centered layout
+- Headline: “Understand Markets. Risk Nothing.”
+- Subtext: “Explore global markets using free virtual credits. No money. No noise. Just learning.”
+- Single primary CTA: “Start Free”
+- No background animation, only subtle grain or soft noise texture
+
+MARKETS SECTION:
+- Minimal grid with text-only cards:
+  - Stocks
+  - Indices
+  - Crypto
+  - Commodities
+  - Forex
+- Each card:
+  - Thin border
+  - Soft hover highlight
+  - No icons, no images
+
+HOW IT WORKS:
+Simple 4-step horizontal flow:
+1. Get free credits
+2. Choose a market
+3. Allocate & simulate
+4. See where you rank
+
+Use thin dividers and subtle transitions.
+
+FEATURES SECTION:
+Short, quiet statements:
+- Free virtual credits
+- No buying or selling
+- Algorithm-driven simulation
+- Skill-based ranking
+
+No illustrations. Text does the work.
+
+LEADERBOARD PREVIEW:
+- Minimal table
+- Monospace numbers
+- Clean spacing
+- No colors except accent for top rank
+
+DISCLAIMER:
+Very subtle, low-contrast text:
+“This is a market simulation using virtual credits only. No real money involved.”
+
+FOOTER:
+- Extremely minimal
+- One line
+- No clutter
+- No social overload
+
+INTERACTIONS:
+- Smooth fades
+- Gentle hover states
+- No bouncing, no flashy motion
+- Feels calm and intentional
+
+TECH:
+- HTML, CSS, JavaScript
+- Tailwind CSS preferred
+- Fully responsive
+- Accessibility-friendly
+- No backend integration
+
+OUTPUT:
+Return full, clean, production-ready code for the landing page.
