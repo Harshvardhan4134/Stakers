@@ -6,4 +6,3 @@ dist/index.cjs
 dist/server
 *.log
 server
-script
