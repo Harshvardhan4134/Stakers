@@ -38,27 +38,32 @@ async function buildAll() {
   console.log("building client...");
   await viteBuild();
 
-  console.log("building server...");
-  const pkg = JSON.parse(await readFile("package.json", "utf-8"));
-  const allDeps = [
-    ...Object.keys(pkg.dependencies || {}),
-    ...Object.keys(pkg.devDependencies || {}),
-  ];
-  const externals = allDeps.filter((dep) => !allowlist.includes(dep));
+  // Only build server if not in Vercel environment (Vercel only needs static files)
+  if (process.env.VERCEL !== "1" && !process.env.SKIP_SERVER_BUILD) {
+    console.log("building server...");
+    const pkg = JSON.parse(await readFile("package.json", "utf-8"));
+    const allDeps = [
+      ...Object.keys(pkg.dependencies || {}),
+      ...Object.keys(pkg.devDependencies || {}),
+    ];
+    const externals = allDeps.filter((dep) => !allowlist.includes(dep));
 
-  await esbuild({
-    entryPoints: ["server/index.ts"],
-    platform: "node",
-    bundle: true,
-    format: "cjs",
-    outfile: "dist/index.cjs",
-    define: {
-      "process.env.NODE_ENV": '"production"',
-    },
-    minify: true,
-    external: externals,
-    logLevel: "info",
-  });
+    await esbuild({
+      entryPoints: ["server/index.ts"],
+      platform: "node",
+      bundle: true,
+      format: "cjs",
+      outfile: "dist/index.cjs",
+      define: {
+        "process.env.NODE_ENV": '"production"',
+      },
+      minify: true,
+      external: externals,
+      logLevel: "info",
+    });
+  } else {
+    console.log("Skipping server build (Vercel deployment - static files only)");
+  }
 }
 
 buildAll().catch((err) => {

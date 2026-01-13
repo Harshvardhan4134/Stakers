@@ -5,4 +5,3 @@ node_modules
 dist/index.cjs
 dist/server
 *.log
-server
