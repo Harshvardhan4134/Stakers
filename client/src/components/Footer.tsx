@@ -17,7 +17,7 @@ export function Footer() {
           className="text-xs text-muted-foreground font-mono"
           whileHover={{ scale: 1.05 }}
         >
-          © 2024 MARKET_SIM. ALL RIGHTS RESERVED.
+          © 2024 Stakers. ALL RIGHTS RESERVED.
         </motion.div>
         
         <div className="flex gap-6 text-xs text-muted-foreground">

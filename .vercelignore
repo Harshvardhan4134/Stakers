@@ -2,5 +2,8 @@ node_modules
 .git
 .env
 .env.local
-dist
+dist/index.cjs
+dist/server
 *.log
+server
+script

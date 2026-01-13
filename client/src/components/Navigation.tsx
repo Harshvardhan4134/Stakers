@@ -24,7 +24,7 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <div>
           <Link href="/" className="text-lg font-medium tracking-tight hover:text-white/80 transition-colors inline-block hover:scale-105 active:scale-95 transition-transform duration-150">
-            MARKET_SIM
+            Stakers
           </Link>
         </div>
         

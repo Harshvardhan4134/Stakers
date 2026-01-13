@@ -41,7 +41,7 @@ export default function Legal() {
               <h2 className="text-2xl font-medium mb-4">Platform Description</h2>
               <div className="prose prose-invert max-w-none">
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  MarketPlay (working name) is an educational fantasy/simulation platform designed 
+                  Stakers is an educational fantasy/simulation platform designed 
                   to help users understand how global financial markets behave through risk-free, 
                   algorithm-driven simulation using free virtual credits.
                 </p>
