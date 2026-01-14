@@ -8,6 +8,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/api/market",
+      "destination": "/api/market.ts"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "/api/index.ts"
     },

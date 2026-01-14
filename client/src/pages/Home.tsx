@@ -4,6 +4,7 @@ import { ArrowRight, ChevronRight, TrendingUp, Sparkles } from "lucide-react";
 import { useCreateSubscriber } from "@/hooks/use-subscribers";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { MarketTrends } from "@/components/MarketTrends";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -511,6 +512,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <MarketsSection />
+        <MarketTrends />
         <HowItWorks />
         <Features />
         <LeaderboardPreview />
