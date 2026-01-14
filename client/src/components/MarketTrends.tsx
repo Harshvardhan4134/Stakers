@@ -47,28 +47,56 @@ export function MarketTrends() {
       
       try {
         const response = await fetch(
-          `/api/market?symbol=${selectedMarket.symbol}&range=${selectedRange}`
+          `/api/market?symbol=${selectedMarket.symbol}&range=${selectedRange}`,
+          {
+            headers: {
+              'Accept': 'application/json',
+            },
+          }
         );
         
-        if (!response.ok) {
-          const errorText = await response.text();
-          // Check if response is HTML (error page)
-          if (errorText.trim().startsWith('<!DOCTYPE') || errorText.trim().startsWith('<html')) {
-            throw new Error("API endpoint not found. Please check server configuration.");
-          }
-          throw new Error(`Failed to fetch market data: ${response.status}`);
-        }
+        // Check content type first
+        const contentType = response.headers.get("content-type") || "";
+        const isHTML = contentType.includes("text/html") || 
+                      contentType.includes("text/plain") ||
+                      !contentType.includes("application/json");
         
-        const contentType = response.headers.get("content-type");
-        if (!contentType || !contentType.includes("application/json")) {
-          throw new Error("Invalid response format from server");
+        if (isHTML || !response.ok) {
+          // Try to read as text to see what we got
+          const text = await response.text();
+          
+          // If it's HTML, the API route isn't working
+          if (text.trim().startsWith('<!DOCTYPE') || text.trim().startsWith('<html')) {
+            throw new Error("Market data API is not available. Using demo data.");
+          }
+          
+          // Try to parse as JSON anyway
+          try {
+            const jsonData = JSON.parse(text);
+            if (jsonData.error) {
+              throw new Error(jsonData.error || jsonData.message || "Failed to fetch market data");
+            }
+            setData(jsonData);
+            setLoading(false);
+            return;
+          } catch (parseErr) {
+            throw new Error(`Server error: ${response.status} - ${text.substring(0, 100)}`);
+          }
         }
         
         const marketData = await response.json();
+        
+        // Validate response structure
+        if (!marketData.dates || !marketData.prices) {
+          throw new Error("Invalid data format received from server");
+        }
+        
         setData(marketData);
       } catch (err: any) {
         setError(err.message || "Failed to load market data");
         console.error("Market data error:", err);
+        // Don't show error to user, just log it
+        // The component will show the error state
       } finally {
         setLoading(false);
       }
