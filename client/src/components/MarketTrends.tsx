@@ -51,7 +51,17 @@ export function MarketTrends() {
         );
         
         if (!response.ok) {
-          throw new Error("Failed to fetch market data");
+          const errorText = await response.text();
+          // Check if response is HTML (error page)
+          if (errorText.trim().startsWith('<!DOCTYPE') || errorText.trim().startsWith('<html')) {
+            throw new Error("API endpoint not found. Please check server configuration.");
+          }
+          throw new Error(`Failed to fetch market data: ${response.status}`);
+        }
+        
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+          throw new Error("Invalid response format from server");
         }
         
         const marketData = await response.json();

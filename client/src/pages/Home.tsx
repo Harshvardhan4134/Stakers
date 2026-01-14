@@ -4,7 +4,6 @@ import { ArrowRight, ChevronRight, TrendingUp, Sparkles } from "lucide-react";
 import { useCreateSubscriber } from "@/hooks/use-subscribers";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { MarketTrends } from "@/components/MarketTrends";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -85,7 +84,7 @@ function HeroSection() {
             />
           )}
           {prefersReducedMotion && (
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+          <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
           )}
           <span>Risk-free simulation environment</span>
         </motion.div>
@@ -128,25 +127,25 @@ function HeroSection() {
             whileFocus={{ scale: 1.02 }}
             className="flex-1"
           >
-            <Input 
-              type="email" 
-              placeholder="Enter email address" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+          <Input 
+            type="email" 
+            placeholder="Enter email address" 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
               className="bg-white/5 border-white/10 text-white placeholder:text-white/20 focus:border-white/30 focus:ring-2 focus:ring-white/20 transition-all h-12 backdrop-blur-sm"
-            />
+          />
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Button 
-              type="submit" 
-              disabled={createSubscriber.isPending}
+          <Button 
+            type="submit" 
+            disabled={createSubscriber.isPending}
               className="h-12 px-6 bg-white text-black hover:bg-white/90 transition-all font-medium shadow-lg shadow-white/10 hover:shadow-white/20"
-            >
-              {createSubscriber.isPending ? "Joining..." : "Start Free"}
-            </Button>
+          >
+            {createSubscriber.isPending ? "Joining..." : "Start Free"}
+          </Button>
           </motion.div>
         </motion.form>
         
@@ -198,7 +197,7 @@ function MarketCard({ title, value, change, index }: { title: string, value: str
           whileHover={{ rotate: 0, x: 2 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <ArrowRight className="w-4 h-4 text-white/20 -rotate-45 group-hover:text-white group-hover:rotate-0 transition-all duration-300" />
+        <ArrowRight className="w-4 h-4 text-white/20 -rotate-45 group-hover:text-white group-hover:rotate-0 transition-all duration-300" />
         </motion.div>
       </div>
       <div className="relative z-10 flex flex-col gap-1">
@@ -285,7 +284,7 @@ function Step({ num, title, desc, index }: { num: string, title: string, desc: s
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 via-indigo-500/50 to-indigo-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      </div>
+    </div>
       <motion.span 
         className="font-mono text-xs text-muted-foreground"
         initial={{ opacity: 0 }}
@@ -482,10 +481,10 @@ function LeaderboardPreview() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Button variant="ghost" className="text-muted-foreground hover:text-white group">
-              View full leaderboard 
-              <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-            </Button>
+          <Button variant="ghost" className="text-muted-foreground hover:text-white group">
+            View full leaderboard 
+            <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+          </Button>
           </motion.div>
         </motion.div>
       </div>
@@ -512,7 +511,6 @@ export default function Home() {
       <main>
         <HeroSection />
         <MarketsSection />
-        <MarketTrends />
         <HowItWorks />
         <Features />
         <LeaderboardPreview />

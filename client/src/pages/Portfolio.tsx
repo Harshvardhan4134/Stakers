@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { MarketTrends } from "@/components/MarketTrends";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight, X, TrendingUp } from "lucide-react";
@@ -45,6 +46,11 @@ export default function Portfolio() {
             <p className="text-muted-foreground">
               Allocate your virtual credits across available markets.
             </p>
+          </div>
+
+          {/* Market Trends Section */}
+          <div className="mb-12">
+            <MarketTrends />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
